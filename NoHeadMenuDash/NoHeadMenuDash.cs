@@ -48,7 +48,7 @@ namespace NoHeadMenuDash
                  * This prints the il code, useful for debugging
                 for(var i = 0; i < codes.Count; i++)
                 {
-                    UniLog.Log(codes[i].ToString());
+                    Debug(codes[i].ToString());
                 }
                 */
                 return codes.AsEnumerable();
