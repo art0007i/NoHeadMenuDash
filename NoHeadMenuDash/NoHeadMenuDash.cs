@@ -1,20 +1,20 @@
 ﻿using HarmonyLib;
-using NeosModLoader;
+using ResoniteModLoader;
 using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using FrooxEngine;
-using FrooxEngine.LogiX;
+using FrooxEngine.ProtoFlux;
 
 namespace NoHeadMenuDash
 {
-    public class NoHeadMenuDash : NeosMod
+    public class NoHeadMenuDash : ResoniteMod
     {
         public override string Name => "NoHeadMenuDash";
         public override string Author => "art0007i";
-        public override string Version => "1.0.0";
+        public override string Version => "2.0.0";
         public override string Link => "https://github.com/art0007i/NoHeadMenuDash/";
         public override void OnEngineInit()
         {
@@ -22,9 +22,9 @@ namespace NoHeadMenuDash
             harmony.PatchAll();
 
         }
-        [HarmonyPatch(typeof(CommonTool))]
+        [HarmonyPatch(typeof(InteractionHandler))]
         [HarmonyPatch("EndMenu")]
-        class CommonTool_EndMenu_Patch
+        class InteractionHandler_EndMenu_Patch
         {
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
@@ -55,15 +55,15 @@ namespace NoHeadMenuDash
             }
         }
 
-        [HarmonyPatch(typeof(CommonTool))]
+        [HarmonyPatch(typeof(InteractionHandler))]
         [HarmonyPatch("StartMenu")]
-        class CommonTool_StartMenu_Patch
+        class InteractionHandler_StartMenu_Patch
         {
-            public static void Postfix(CommonTool __instance)
+            public static void Postfix(InteractionHandler __instance)
             {
                 if (__instance.IsNearHead && !__instance.SharesUserspaceToggleAndMenus)
                 {
-                    AccessTools.Method(typeof(CommonTool), "TryOpenContextMenu").Invoke(__instance, null);
+                    AccessTools.Method(typeof(InteractionHandler), "TryOpenContextMenu").Invoke(__instance, null);
                 }
             }
         }
