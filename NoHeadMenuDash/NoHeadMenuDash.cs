@@ -1,12 +1,7 @@
 ﻿using HarmonyLib;
 using ResoniteModLoader;
-using System;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using FrooxEngine;
-using FrooxEngine.ProtoFlux;
 
 namespace NoHeadMenuDash
 {
@@ -14,7 +9,7 @@ namespace NoHeadMenuDash
     {
         public override string Name => "NoHeadMenuDash";
         public override string Author => "art0007i";
-        public override string Version => "2.0.0";
+        public override string Version => "2.0.1";
         public override string Link => "https://github.com/art0007i/NoHeadMenuDash/";
         public override void OnEngineInit()
         {
