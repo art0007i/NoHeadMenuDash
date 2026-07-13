@@ -6,7 +6,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "art0007i"
 name = "NoHeadMenuDash"
-description = "Example mod description"
+description = "Removes the gesture that opens the dash when you press the menu button near your head."
 websiteUrl = "https://github.com/art0007i/NoHeadMenuDash"
 containsNsfwContent = false
 
